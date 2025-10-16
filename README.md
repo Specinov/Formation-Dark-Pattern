@@ -2,22 +2,22 @@
 
 Bienvenue dans cette formation pratique sur l'écoconception web ! Ce site contient **35 anti-patterns** volontairement intégrés. Votre mission : les identifier et les corriger.
 
-## 🎯 Objectifs pédagogiques
+## Objectifs
 
 - Identifier les mauvaises pratiques d'écoconception
 - Comprendre leur impact environnemental
 - Apprendre à les corriger
 - Améliorer les performances et l'accessibilité
 
-## 📊 Vue d'ensemble
+## Vue d'ensemble
 
 | Partie | Nombre d'exercices |
 |--------|-------------------|
-| 🌱 Écoconception | 26 |
-| ♿ Accessibilité | 9 |
+| Écoconception | 26 |
+| Accessibilité | 9 |
 | **TOTAL** | **35** |
 
-## 🛠️ Outils recommandés
+## Outils recommandés
 
 - **Lighthouse** (DevTools Chrome) : Audit de performance
 - **Kastor.green** : Audit d'écoconception
@@ -27,9 +27,9 @@ Bienvenue dans cette formation pratique sur l'écoconception web ! Ce site conti
 
 # 🌱 PARTIE 1 : ÉCOCONCEPTION
 
-## 🌐 RESSOURCES EXTERNES
+## RESSOURCES EXTERNES
 
-### 📝 Exercice 1 : Double import de bibliothèque d'icônes
+### Exercice 1 : Double import de bibliothèque d'icônes
 **Fichier** : `index.html` (head)
 
 Examinez les imports de Font Awesome dans le `<head>`. Combien de versions sont importées ?
@@ -44,7 +44,7 @@ Examinez les imports de Font Awesome dans le `<head>`. Combien de versions sont 
 
 ---
 
-### 📝 Exercice 2 : Import de polices non optimisé
+### Exercice 2 : Import de polices non optimisé
 **Fichier** : `index.html` (head)
 
 Analysez l'import Google Fonts. Combien de polices et de poids sont chargés ?
@@ -59,7 +59,7 @@ Analysez l'import Google Fonts. Combien de polices et de poids sont chargés ?
 
 ---
 
-### 📝 Exercice 3 : Scripts bloquant le rendu
+### Exercice 3 : Scripts bloquant le rendu
 **Fichier** : `index.html` (head)
 
 Les scripts jQuery, Popper et Bootstrap bloquent-ils le rendu de la page ?
@@ -75,7 +75,7 @@ Les scripts jQuery, Popper et Bootstrap bloquent-ils le rendu de la page ?
 
 ---
 
-### 📝 Exercice 4 : CDN Bootstrap complet
+### Exercice 4 : CDN Bootstrap complet
 **Fichier** : `index.html` (head)
 
 Le site utilise-t-il tous les composants Bootstrap ?
@@ -90,7 +90,7 @@ Le site utilise-t-il tous les composants Bootstrap ?
 
 ---
 
-### 📝 Exercice 5 : Scripts externes de réseaux sociaux
+### Exercice 5 : Scripts externes de réseaux sociaux
 **Fichier** : `index.html` (fin du body)
 
 Combien de scripts externes pour les réseaux sociaux sont chargés ?
@@ -105,7 +105,7 @@ Combien de scripts externes pour les réseaux sociaux sont chargés ?
 
 ---
 
-### 📝 Exercice 6 : Widget LinkedIn avec scripts
+### Exercice 6 : Widget LinkedIn avec scripts
 **Fichier** : `index.html` (footer)
 
 L'icône LinkedIn utilise-t-elle la même approche que les autres icônes ?
@@ -120,9 +120,9 @@ L'icône LinkedIn utilise-t-elle la même approche que les autres icônes ?
 
 ---
 
-## 🖼️ IMAGES & MÉDIAS
+## IMAGES & MÉDIAS
 
-### 📝 Exercice 7 : Image non optimisée
+### Exercice 7 : Image non optimisée
 **Fichier** : `index.html` (section keypoint)
 
 L'image `back22.jpg` est-elle optimisée ? (Utilisez DevTools pour vérifier)
@@ -139,7 +139,7 @@ L'image `back22.jpg` est-elle optimisée ? (Utilisez DevTools pour vérifier)
 
 ---
 
-### 📝 Exercice 8 : Images sans dimensions
+### Exercice 8 : Images sans dimensions
 **Fichier** : `index.html` (carrousel)
 
 Les images du carrousel ont-elles des attributs `width` et `height` ?
@@ -155,7 +155,7 @@ Les images du carrousel ont-elles des attributs `width` et `height` ?
 
 ---
 
-### 📝 Exercice 9 : Image hors écran sans lazy loading
+### Exercice 9 : Image hors écran sans lazy loading
 **Fichier** : `index.html` (section produits)
 
 Y a-t-il des images cachées qui se chargent quand même ?
@@ -170,9 +170,9 @@ Y a-t-il des images cachées qui se chargent quand même ?
 
 ---
 
-## 🎬 VIDÉO & ANIMATIONS
+## VIDÉO & ANIMATIONS
 
-### 📝 Exercice 10 : Carrousel automatique
+### Exercice 10 : Carrousel automatique
 **Fichier** : `index.html` (carrousel)
 
 Le carrousel tourne-t-il automatiquement ? (Cherchez `data-interval`)
@@ -187,7 +187,7 @@ Le carrousel tourne-t-il automatiquement ? (Cherchez `data-interval`)
 
 ---
 
-### 📝 Exercice 11 : Vidéo en autoplay
+### Exercice 11 : Vidéo en autoplay
 **Fichier** : `index.html` (section équipe)
 
 La vidéo se lance-t-elle automatiquement ? Quels attributs posent problème ?
@@ -202,7 +202,7 @@ La vidéo se lance-t-elle automatiquement ? Quels attributs posent problème ?
 
 ---
 
-### 📝 Exercice 12 : Vidéo sans formats alternatifs
+### Exercice 12 : Vidéo sans formats alternatifs
 **Fichier** : `index.html` (section équipe)
 
 La vidéo est-elle proposée en plusieurs formats ? Y a-t-il une image poster ?
@@ -217,7 +217,7 @@ La vidéo est-elle proposée en plusieurs formats ? Y a-t-il une image poster ?
 
 ---
 
-### 📝 Exercice 13 : Vidéo cachée en autoplay
+### Exercice 13 : Vidéo cachée en autoplay
 **Fichier** : `index.html` (section équipe)
 
 Y a-t-il une vidéo cachée (`display:none`) qui se charge quand même ?
@@ -232,9 +232,9 @@ Y a-t-il une vidéo cachée (`display:none`) qui se charge quand même ?
 
 ---
 
-## 💻 CODE & STRUCTURE
+## CODE & STRUCTURE
 
-### 📝 Exercice 14 : Styles inline
+### Exercice 14 : Styles inline
 **Fichier** : `index.html` (plusieurs endroits)
 
 Trouvez tous les attributs `style=""` dans le HTML. Sont-ils nécessaires ?
@@ -249,7 +249,7 @@ Trouvez tous les attributs `style=""` dans le HTML. Sont-ils nécessaires ?
 
 ---
 
-### 📝 Exercice 15 : iFrame sans lazy loading
+### Exercice 15 : iFrame sans lazy loading
 **Fichier** : `index.html` (Google Maps)
 
 L'iframe Google Maps se charge-t-elle immédiatement ?
@@ -264,7 +264,7 @@ L'iframe Google Maps se charge-t-elle immédiatement ?
 
 ---
 
-### 📝 Exercice 16 : Formulaire vers service externe
+### Exercice 16 : Formulaire vers service externe
 **Fichier** : `index.html` (formulaire)
 
 Où sont envoyées les données du formulaire ?
@@ -279,9 +279,9 @@ Où sont envoyées les données du formulaire ?
 
 ---
 
-## 🎨 CSS
+## CSS
 
-### 📝 Exercice 17 : Background image fixe
+### Exercice 17 : Background image fixe
 **Fichier** : `styles.css` (body)
 
 Le background du body utilise-t-il `background-attachment: fixed` ?
@@ -296,7 +296,7 @@ Le background du body utilise-t-il `background-attachment: fixed` ?
 
 ---
 
-### 📝 Exercice 18 : CSS inutilisé
+### Exercice 18 : CSS inutilisé
 **Fichier** : `styles.css`
 
 Y a-t-il des classes CSS définies mais jamais utilisées ? (Utilisez DevTools Coverage)
@@ -311,7 +311,7 @@ Y a-t-il des classes CSS définies mais jamais utilisées ? (Utilisez DevTools C
 
 ---
 
-### 📝 Exercice 19 : Code CSS commenté
+### Exercice 19 : Code CSS commenté
 **Fichier** : `styles.css` (footer)
 
 Y a-t-il du code CSS commenté qui devrait être supprimé ?
@@ -326,7 +326,7 @@ Y a-t-il du code CSS commenté qui devrait être supprimé ?
 
 ---
 
-### 📝 Exercice 20 : Sélecteurs CSS inefficaces
+### Exercice 20 : Sélecteurs CSS inefficaces
 **Fichier** : `styles.css`
 
 Trouvez les sélecteurs CSS trop spécifiques (> 4 niveaux).
@@ -341,7 +341,7 @@ Trouvez les sélecteurs CSS trop spécifiques (> 4 niveaux).
 
 ---
 
-### 📝 Exercice 21 : CSS non minifié
+### Exercice 21 : CSS non minifié
 **Fichier** : `styles.css`
 
 Le fichier CSS est-il minifié ? Y a-t-il des commentaires très longs ?
@@ -356,9 +356,9 @@ Le fichier CSS est-il minifié ? Y a-t-il des commentaires très longs ?
 
 ---
 
-## ⚙️ JAVASCRIPT
+## JAVASCRIPT
 
-### 📝 Exercice 22 : jQuery inutile
+### Exercice 22 : jQuery inutile
 **Fichier** : `script.js`
 
 Le code jQuery est-il nécessaire ? Bootstrap gère-t-il déjà ces fonctionnalités ?
@@ -373,7 +373,7 @@ Le code jQuery est-il nécessaire ? Bootstrap gère-t-il déjà ces fonctionnali
 
 ---
 
-### 📝 Exercice 23 : Console.log en production
+### Exercice 23 : Console.log en production
 **Fichier** : `script.js`
 
 Y a-t-il des `console.log()` dans le code ?
@@ -388,9 +388,9 @@ Y a-t-il des `console.log()` dans le code ?
 
 ---
 
-## 🖨️ IMPRESSION & CACHE
+## IMPRESSION & CACHE
 
-### 📝 Exercice 24 : Pas de print CSS
+### Exercice 24 : Pas de print CSS
 **Fichier** : `index.html` (head)
 
 Y a-t-il une feuille de style pour l'impression ?
@@ -405,7 +405,7 @@ Y a-t-il une feuille de style pour l'impression ?
 
 ---
 
-### 📝 Exercice 25 : CSS non compressé côté serveur
+### Exercice 25 : CSS non compressé côté serveur
 **Fichier** : `styles.css`
 
 Le fichier CSS est-il compressé côté serveur ? (Vérifiez les headers HTTP)
@@ -420,9 +420,9 @@ Le fichier CSS est-il compressé côté serveur ? (Vérifiez les headers HTTP)
 
 ---
 
-## 🔒 PERMISSIONS & VIE PRIVÉE
+## PERMISSIONS & VIE PRIVÉE
 
-### 📝 Exercice 26 : Géolocalisation au chargement
+### Exercice 26 : Géolocalisation au chargement
 **Fichier** : `index.html` (head)
 
 La géolocalisation est-elle demandée dès le chargement de la page ?
@@ -437,7 +437,7 @@ La géolocalisation est-elle demandée dès le chargement de la page ?
 
 ---
 
-### 📝 Exercice 27 : Notifications au chargement
+### Exercice 27 : Notifications au chargement
 **Fichier** : `index.html` (head)
 
 Les notifications sont-elles demandées dès le chargement ?
@@ -452,7 +452,7 @@ Les notifications sont-elles demandées dès le chargement ?
 
 ---
 
-### 📝 Exercice 28 : Cookies volumineux
+### Exercice 28 : Cookies volumineux
 **Fichier** : `index.html` (head)
 
 Des cookies sont-ils créés automatiquement ? Quelle est leur taille ?
@@ -467,9 +467,9 @@ Des cookies sont-ils créés automatiquement ? Quelle est leur taille ?
 
 ---
 
-# ♿ PARTIE 2 : ACCESSIBILITÉ
+# PARTIE 2 : ACCESSIBILITÉ
 
-## 📝 Exercice 29 : Textes alternatifs non descriptifs
+## Exercice 29 : Textes alternatifs non descriptifs
 **Fichier** : `index.html` (carrousel)
 
 Les attributs `alt` sont-ils descriptifs ? ("Image 1", "Image 2")
@@ -484,7 +484,7 @@ Les attributs `alt` sont-ils descriptifs ? ("Image 1", "Image 2")
 
 ---
 
-## 📝 Exercice 30 : Image sans attribut alt
+## Exercice 30 : Image sans attribut alt
 **Fichier** : `index.html` (section jumbotron)
 
 L'image `side.jpg` a-t-elle un attribut `alt` ?
@@ -499,7 +499,7 @@ L'image `side.jpg` a-t-elle un attribut `alt` ?
 
 ---
 
-## 📝 Exercice 31 : Image produit sans alt
+## Exercice 31 : Image produit sans alt
 **Fichier** : `index.html` (section produits)
 
 L'image `char.jpg` a-t-elle un attribut `alt` ?
@@ -514,7 +514,7 @@ L'image `char.jpg` a-t-elle un attribut `alt` ?
 
 ---
 
-## 📝 Exercice 32 : Lien vide
+## Exercice 32 : Lien vide
 **Fichier** : `index.html` (section produits)
 
 Le bouton "Choisir l'option" fonctionne-t-il ?
@@ -529,7 +529,7 @@ Le bouton "Choisir l'option" fonctionne-t-il ?
 
 ---
 
-## 📝 Exercice 33 : Structure HTML incorrecte
+## Exercice 33 : Structure HTML incorrecte
 **Fichier** : `index.html` (section keypoint)
 
 Les balises `<li>` sont-elles correctement structurées ?
@@ -544,7 +544,7 @@ Les balises `<li>` sont-elles correctement structurées ?
 
 ---
 
-## 📝 Exercice 34 : Attribut method sur mauvais élément
+## Exercice 34 : Attribut method sur mauvais élément
 **Fichier** : `index.html` (formulaire)
 
 L'attribut `method="post"` est-il sur le bon élément ?
@@ -559,7 +559,7 @@ L'attribut `method="post"` est-il sur le bon élément ?
 
 ---
 
-## 📝 Exercice 35 : Formulaire sans labels
+## Exercice 35 : Formulaire sans labels
 **Fichier** : `index.html` (formulaire)
 
 Les champs du formulaire ont-ils des labels associés ?
@@ -574,14 +574,14 @@ Les champs du formulaire ont-ils des labels associés ?
 
 ---
 
-## 📚 Ressources
+## Ressources
 
 - [RGESN](https://ecoresponsable.numerique.gouv.fr/publications/referentiel-general-ecoconception/) - Référentiel Général d'Écoconception
 - [Web.dev](https://web.dev/learn-core-web-vitals/) - Core Web Vitals
 - [GreenIT](https://www.greenit.fr/) - Numérique responsable
 - [EcoIndex](https://www.ecoindex.fr/) - Mesure d'écoconception
 
-## 👥 Auteurs
+## Auteurs
 
 - [@poupardjean](https://github.com/poupardjean)
 - [@juliettespecinov](https://github.com/JulietteSpecinov)
