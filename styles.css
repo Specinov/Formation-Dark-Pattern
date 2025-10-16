@@ -1,3 +1,4 @@
+/* ANTI-PATTERN 21: Background image fixe consommant des ressources GPU */
 body {
     font-family: Arial, sans-serif;
     background-image: url('images/back.jpg');
@@ -5,6 +6,18 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* ANTI-PATTERN 22: Règles CSS inutilisées pour des éléments qui n'existent pas */
+.unused-class {
+    color: red;
+    font-size: 24px;
+    padding: 50px;
+}
+
+.another-unused {
+    display: flex;
+    justify-content: center;
 }
 
 #logo{
@@ -323,6 +336,7 @@ body {
     pointer-events: none; /* Pour permettre l'interaction avec l'iframe */
 }
 
+/* ANTI-PATTERN 23: Code CSS commenté non supprimé (dette technique) */
 /* footer {
     background-color: white;
     padding: 30px 0;
@@ -358,4 +372,28 @@ footer .justify-content-center {
 
 .pages, .social, .image {
     width: 100%;
+}
+
+/* ANTI-PATTERN 24: Sélecteurs CSS trop spécifiques et inefficaces */
+body div.product div.product_container div.row div.item div.item_img img {
+    border-radius: 5px;
+}
+
+/* ANTI-PATTERN 34: Fichier CSS non minifié et non compressé */
+/* Ce commentaire est volontairement très long pour augmenter la taille du fichier CSS sans raison valable. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. */
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-icons a {
+    font-size: 24px;
+    color: #518065;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #3e6050;
 }

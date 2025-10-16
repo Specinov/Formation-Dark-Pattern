@@ -3,17 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpéciCuisine</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title>SpéciCuisine - Restaurant Gastronomique</title>
+    <!-- ANTI-PATTERN 1: Double import Font Awesome (v4 + v6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
+    
+    <!-- ANTI-PATTERN 2: Import de 3 Google Fonts complètes avec tous les poids -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:wght@200&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:wght@200;300;400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- ANTI-PATTERN 3: Scripts sans defer/async bloquant le rendu -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <!-- ANTI-PATTERN 4: CDN Bootstrap entier pour quelques composants -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+    <!-- ANTI-PATTERN 30: Pas de print CSS pour l'impression -->
+    
+    <!-- ANTI-PATTERN 31: Demande de géolocalisation au chargement de la page -->
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                console.log("Position:", position.coords.latitude, position.coords.longitude);
+            });
+        }
+    </script>
+    
+    <!-- ANTI-PATTERN 32: Demande de notifications au chargement de la page -->
+    <script>
+        if ("Notification" in window) {
+            Notification.requestPermission().then(function(permission) {
+                console.log("Notification permission:", permission);
+            });
+        }
+    </script>
+    
+    <!-- ANTI-PATTERN 33: Cookies volumineux et inutiles -->
+    <script>
+        // Création de cookies trop gros
+        document.cookie = "user_preferences=" + "x".repeat(3000) + "; path=/";
+        document.cookie = "tracking_data=" + "y".repeat(2000) + "; path=/";
+        document.cookie = "analytics=" + JSON.stringify({data: "z".repeat(1000)}) + "; path=/";
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -24,41 +59,39 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active p-3">
-                    <a class="nav-link" href="index.html">Accueil</a>
+                    <a class="nav-link" href="#accueil">Accueil</a>
                 </li>
                 <li class="nav-item p-3">
-                    <a class="nav-link" href="a-propos.html">A propos de nous</a>
+                    <a class="nav-link" href="#produits">Nos produits</a>
                 </li>
-                <li class="nav-item p-3" >
-                    <a class="nav-link" href="prestations.html">Les prestations</a>
+                <li class="nav-item p-3">
+                    <a class="nav-link" href="#equipe">Notre équipe</a>
                 </li>
-                <li class="nav-item p-3" >
-                    <a class="nav-link" href="contact.html">Contact</a>
+                <li class="nav-item p-3">
+                    <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Carousel -->
-    <div id="carouselExample" class="carousel slide" data-ride="carousel">
+    <!-- ANTI-PATTERN 5: Carrousel automatique consommant du CPU -->
+    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
         <ol class="carousel-indicators">
             <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExample" data-slide-to="1"></li>
-            <li data-target="#carouselExample" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-title">
                 Livraison gratuite pour un montant supérieur à 50€<br>
                 <button type="button" class="btn btn-sm btn-outline-light" id="shop-now">Acheter maintenant</button>
             </div>
+            <!-- ANTI-PATTERN 6: Image sans width/height (CLS) -->
             <div class="carousel-item active">
                 <img src="images/pic1.jpg" class="d-block w-100" alt="Image 1">
             </div>
+            <!-- ANTI-PATTERN 7: Alt text non descriptif -->
             <div class="carousel-item">
                 <img src="images/pic3.jpg" class="d-block w-100" alt="Image 2">
-            </div>
-            <div class="carousel-item">
-                <img src="images/pic4.jpg" class="d-block w-100" alt="Image 3">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
@@ -72,19 +105,20 @@
     </div>
 
     <!-- Explications -->
-    <div class="jumbotron">
+    <div class="jumbotron" id="accueil">
         <div class="row">
             <div class="col-md-7">
                 <h1 class="display-4">Une expérience gastronomique inoubliable !</h1>
                 <p class="lead">Osez l'originalité avec notre sélection gastronomique en constante évolution. Chaque semaine, découvrez de nouvelles saveurs qui éveilleront vos papilles. Trouvez vos coups de cœur parmi nos chocolats artisanaux en édition limitée, nos charcuteries traditionnellement affinées, nos confitures innovantes et les fromages les plus fins.</p>
                 <hr class="my-4">
-                <p>Embarquez pour un voyage culinaire où l'exceptionnel devient la norme. Notre passion pour la qualité et la diversité se reflète dans chaque bouchée. De la découverte de délices uniques à l'exploration de saveurs audacieuses, notre menu en constante évolution est une invitation à l'exploration gastronomique.
-
-                    Ne vous contentez pas de l'ordinaire, plongez dans l'extraordinaire ! Rejoignez-nous pour une expérience culinaire exceptionnelle où chaque bouchée est une aventure gustative.</p>
-                <a class="btn btn-outline-secondary btn-lg" href="#" role="button" style="color:rgb(192, 189, 189)">Voir les menus</a>
+                <p>Embarquez pour un voyage culinaire où l'exceptionnel devient la norme. Notre passion pour la qualité et la diversité se reflète dans chaque bouchée. De la découverte de délices uniques à l'exploration de saveurs audacieuses, notre menu en constante évolution est une invitation à l'exploration gastronomique.</p>
+                <p>Ne vous contentez pas de l'ordinaire, plongez dans l'extraordinaire ! Rejoignez-nous pour une expérience culinaire exceptionnelle où chaque bouchée est une aventure gustative.</p>
+                <!-- ANTI-PATTERN 8: Inline styles au lieu de classes CSS -->
+                <a class="btn btn-outline-secondary btn-lg" href="#" role="button" style="color:rgb(192, 189, 189); padding: 15px 30px; font-weight: bold;">Voir les menus</a>
             </div>
             <div class="col-md-5">
-                <img src="images/side.jpg" style="width: -webkit-fill-available;">
+                <!-- ANTI-PATTERN 9: Image sans alt, sans width/height, avec inline style -->
+                <img src="images/side.jpg" style="width: -webkit-fill-available; max-width: 100%; border-radius: 10px;">
             </div>
         </div>
     </div>
@@ -101,54 +135,38 @@
     
 
     <!-- Produits -->
-    <div class="product bg-light">
+    <div class="product bg-light" id="produits">
         <h2>Les meilleures ventes</h2>
         <div class="product_container">
             <div class="row">
-                <div class="item col-md-3 mb-3 p-3">
+                <div class="item col-md-6 mb-3 p-3">
                     <div class="item_img">
+                        <!-- ANTI-PATTERN 10: Image sans alt et sans dimensions -->
                         <img src="images/char.jpg">
                     </div>
                     <div class="item_content">
                         <h3>LA COLLECTION DE CHARCUTERIE</h3>
                         <p>Pour les amoureux de charcuterie, une délicieuse sélection par nos bouchers qui saura ravir vos palais.</p>
+                        <!-- ANTI-PATTERN 11: Lien vide non fonctionnel -->
                         <a href="#">Choisir l'option</a>
                     </div>
                 </div>
     
-                <div class="item col-md-3 mb-3 p-3">
+                <div class="item col-md-6 mb-3 p-3">
                     <div class="item_img">
-                        <img src="images/bacon.jpg">
+                        <img src="images/cake.jpg" alt="Délicieux gâteaux artisanaux">
                     </div>
                     <div class="item_content">
-                        <h3>LES MEILLEURS BRETZELS</h3>
-                        <p>L'expérience ultime des bretzels de Philadelphie, livrée mensuellement et chez vous. A découvrir absolument ! </p>
-                        <a href="#">Choisir l'option</a>
-                    </div>
-                </div>
-    
-                <div class="item col-md-3 mb-3 p-3">
-                    <div class="item_img">
-                        <img src="images/hot.jpg">
-                    </div>
-                    <div class="item_content">
-                        <h3>COFFRET DE SAUCES PIQUANTES</h3>
-                        <p>Pour les amateurs de chaleur aventureuse, ce coffret cadeau offre un punch ardent et plein de saveurs.</p>
-                        <a href="#">Choisir l'option</a>
-                    </div>
-                </div>
-    
-                <div class="item col-md-3 mb-3 p-3">
-                    <div class="item_img">
-                        <img src="images/cake.jpg">
-                    </div>
-                    <div class="item_content">
-                        <h3>DES CAKES APETISSANTS</h3>
+                        <h3>DES CAKES APPÉTISSANTS</h3>
                         <p>Nous livrons de délicieux gâteaux dans une large gamme de saveurs qui ne sont rien d'autre que le meilleur des desserts.</p>
-                        <a href="#">Choisir l'option</a>
+                        <a href="#contact">Commander</a>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- ANTI-PATTERN 35: Image hors écran chargée immédiatement (pas de lazy loading) -->
+        <div style="margin-top: 2000px; display: none;">
+            <img src="images/feed.jpg" alt="Image cachée mais chargée">
         </div>
     </div>
     <hr class="bg-light m-0">
@@ -158,34 +176,41 @@
         <div class="key_container">
             <div class="row">
                 <div class="key_img col-md-6">
-                    <img src="images/back22.jpg">
+                    <!-- ANTI-PATTERN 12: Image trop lourde non optimisée -->
+                    <img src="images/back22.jpg" alt="Sélection de produits gastronomiques">
                 </div>
                 <div class="key_content col-md-6">
+                    <!-- ANTI-PATTERN 13: Balises <li> sans <ul> parent (structure HTML incorrecte) -->
                     <li><i class="fas fa-birthday-cake"></i> Gâteaux</li>
                     <li><i class="fas fa-bacon"></i> Charcuteries Affinées</li>
                     <li><i class="fas fa-cheese"></i> Fromages</li>
                     <li><i class="fas fa-pepper-hot"></i> Produits Gourmets</li>
-                    <li><i class="fas fa-car"></i> Service au Bord de la Route</li>
-                    <li><i class="fas fa-leaf"></i> Frais et Chevre</li>
                 </div> 
             </div>
-              
         </div>
     </div>
     <hr class="bg-light m-0">
     <!-- --------------------------------------------EQUIPE--------------------------------------------------------->
-    <div class="team bg-light">
+    <div class="team bg-light" id="equipe">
         <h2>Notre équipe</h2><br><br>
         <div class="team_container">
             <div class="row">
                 <div class="team_video col-md-6">
-                    <video controls autoplay muted loop>
+                    <!-- ANTI-PATTERN 14: Vidéo en autoplay + preload="auto" + pas de compression + format unique -->
+                    <!-- ANTI-PATTERN 28: Vidéo non compressée et sans formats alternatifs (WebM, etc.) -->
+                    <video controls autoplay muted loop preload="auto" playsinline>
+                        <!-- Pas de source WebM ou autres formats optimisés -->
+                        <source src="images/Restaurant food cinematic video advertisement.mp4" type="video/mp4">
+                        <!-- Pas de poster image pour économiser la bande passante -->
+                    </video>
+                    <!-- ANTI-PATTERN 29: Plusieurs vidéos lourdes sur la même page -->
+                    <video autoplay muted loop preload="auto" style="display:none;">
                         <source src="images/Restaurant food cinematic video advertisement.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="team_content col-md-6">
                     <p>Nous offrons des expériences culinaires extraordinaires, inspirées par notre héritage. Et surtout, nous adorons le fromage.</p>
-                    <br><p>Nous sommes une entreprise pionnière dans la vente au détail et l'importation de produits alimentaires spécialisés. Tout a commencé avec une modeste boutique dans le désormais emblématique marché italien de North Philadelphia en 1989. Aujourd'hui, nous employons plus de 350 membres fiers de notre équipe et avons évolué en une entreprise axée sur la communauté avec nos cinq points de vente, nos services de restauration, d'importation et de commerce électronique.</p>
+                    <br><p>Nous sommes une entreprise pionnière dans la vente au détail et l'importation de produits alimentaires spécialisés. Tout a commencé avec une modeste boutique dans le désormais emblématique marché italien de North Philadelphia en 1989.</p>
                 </div>
             </div>
         </div>
@@ -193,13 +218,16 @@
 
 
     <!-- --------------------------------------------FORMULAIRE--------------------------------------------------------->
-    <div class="feed bg-light">
+    <div class="feed bg-light" id="contact">
         <h2>Nous contacter</h2>
+        <!-- ANTI-PATTERN 15: Attribut method sur une div au lieu du form -->
         <div class="feed_form" method="post">
-        <form name="submit-googlesheet">
-            <input type="text" name="Name" placeholder="Nom"><br>
-            <input type="email" name="Email" placeholder="Email"><br>
-            <textarea rows="5" cols="7" name="Review" placeholder="Texte"></textarea><br>
+        <!-- ANTI-PATTERN 16: Formulaire sans labels associés (accessibilité) -->
+        <!-- ANTI-PATTERN 17: Formulaire postant vers service externe Google Sheets -->
+        <form name="submit-googlesheet" action="https://script.google.com/macros/s/fake-endpoint/exec" method="POST">
+            <input type="text" name="Name" placeholder="Nom" required><br>
+            <input type="email" name="Email" placeholder="Email" required><br>
+            <textarea rows="5" cols="7" name="Review" placeholder="Texte" required></textarea><br>
             <button type="submit">Envoyer</button>
         </form>
         </div>
@@ -207,7 +235,8 @@
     <!-- --------------------------------------------CONTACT-------------------------------------------------------->
     <div class="contact_container bg-light">
         <div class="g_map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3340544.4960977174!2d-121.88102652009785!3d35.150373310697375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sen!2sin!4v1628463464648!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen=""></iframe>
+            <!-- ANTI-PATTERN 18: iFrame Google Maps sans lazy loading -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3340544.4960977174!2d-121.88102652009785!3d35.150373310697375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sen!2sin!4v1628463464648!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" title="Localisation du restaurant"></iframe>
             <div class="filter-map"></div>
         </div>
     </div>
@@ -216,60 +245,46 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-4 justify-content-start">
                 <div class="image">
-                    <img src="images/logo.png" alt="Logo" style="width: 200px">
+                    <!-- ANTI-PATTERN 19: Inline style dans le footer -->
+                    <img src="images/logo.png" alt="Logo SpéciCuisine" style="width: 200px; margin: 20px;">
                 </div>
             </div>
             <div class="col-12 col-md-4 justify-content-center">
                 <div class="pages">  
                     <h3>Navigation</h3>
-                    <a href="index.html">Accueil </a> | 
-                    <a href="a-propos.html">A propos de nous </a> | 
-                    <a href="prestations.html">Les prestations </a> | 
-                    <a href="contact.html">Contact </a>
+                    <a href="#accueil">Accueil</a> | 
+                    <a href="#produits">Nos produits</a> | 
+                    <a href="#equipe">Notre équipe</a> | 
+                    <a href="#contact">Contact</a>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="social">
                     <h3>Nous suivre</h3>
-                    <div class="row">
-                        <div class="col-1">
-                            <div class="fb-page social" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                                <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore">
-                                    <a href="https://www.facebook.com/facebook">
-                                        <i class="fab fa-facebook" style="display:inline-block"></i>
-                                    </a>
-                                </blockquote>
-                            </div> 
-                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-                        </div>
-
-                        <div class="col-1">
-                            <a class="social" href="https://twitter.com/intent/tweet?button_hashtag=follow&ref_src=twsrc%5Etfw" data-show-count="false">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-                        </div>
-
-                        <div class="col-1">
-                            <a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a>
-                        </div>
-
-                        <div class="col-1">
-                            <a target="_blank" href="https://linkedin.fr">
-                                <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: fr_FR</script>
-                                <script async src="https://static.addtoany.com/menu/page.js"></script>
-                                <div class="a2a_kit">
-                                    <i class="fab fa-linkedin"></i>
-                                </div>
-                            </a>	
-                        </div>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                        <a href="https://pinterest.com" target="_blank" rel="noopener"><i class="fab fa-pinterest"></i></a>
+                        <!-- ANTI-PATTERN 27: Widget LinkedIn avec scripts au lieu d'un simple lien -->
+                        <a target="_blank" href="https://linkedin.fr">
+                            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: fr_FR</script>
+                            <script async src="https://static.addtoany.com/menu/page.js"></script>
+                            <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- ANTI-PATTERN 20: Scripts externes multiples pour réseaux sociaux (Facebook, Twitter, Pinterest, LinkedIn) -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: fr_FR</script>
+    
     <script src="script.js"></script>
 </body>
 </html>
